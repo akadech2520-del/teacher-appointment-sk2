@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือการใช้งานระบบประเมินการเตรียมความพร้อมและพัฒนาอย่างเข้ม ตำแหน่งครูผู้ช่วย</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d7dde7;
+      --soft: #f6f8fb;
+      --royal: #12366f;
+      --gold: #b68a1d;
+      --green: #116b4f;
+      --red: #a23333;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eef2f7;
+      font-family: "Sarabun", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.72;
+    }
+    .page {
+      width: min(980px, calc(100% - 28px));
+      margin: 24px auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 42px rgba(20, 35, 60, .12);
+    }
+    .cover {
+      padding: 56px 64px 42px;
+      border-bottom: 5px solid var(--royal);
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+    }
+    .kicker {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .08em;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3, h4 {
+      font-family: "Noto Serif Thai", "Sarabun", serif;
+      line-height: 1.35;
+      margin: 0;
+      color: var(--royal);
+    }
+    h1 { font-size: 34px; max-width: 820px; }
+    h2 {
+      font-size: 25px;
+      margin-top: 42px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid var(--line);
+    }
+    h3 {
+      font-size: 19px;
+      margin-top: 28px;
+      color: #173f7d;
+    }
+    h4 {
+      font-size: 17px;
+      margin-top: 20px;
+      color: var(--ink);
+    }
+    .subtitle {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+    }
+    .meta div {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 12px 14px;
+      border-radius: 8px;
+    }
+    .meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .content { padding: 40px 64px 60px; }
+    p { margin: 10px 0; }
+    a { color: var(--royal); }
+    ul, ol { margin: 10px 0 18px 26px; padding: 0; }
+    li { margin: 5px 0; }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 24px;
+      margin-top: 18px;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      border-bottom: 1px dotted var(--line);
+      padding: 7px 0;
+    }
+    .note, .warning, .success {
+      border-left: 5px solid var(--royal);
+      background: var(--soft);
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    .warning { border-left-color: var(--red); background: #fff7f7; }
+    .success { border-left-color: var(--green); background: #f1fbf7; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 15px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+    }
+    th {
+      background: #edf3fb;
+      color: var(--royal);
+      font-weight: 700;
+      text-align: left;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 1px 5px;
+      border-radius: 5px;
+      color: #0f2e5e;
+    }
+    .step-list {
+      counter-reset: step;
+      margin: 14px 0 20px;
+    }
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid #edf0f5;
+    }
+    .step::before {
+      content: counter(step);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--royal);
+      color: #fff;
+      font-weight: 700;
+    }
+    .checklist {
+      columns: 2;
+      column-gap: 32px;
+      list-style: none;
+      margin-left: 0;
+    }
+    .checklist li {
+      break-inside: avoid;
+      padding-left: 22px;
+      position: relative;
+    }
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .page-break { break-before: page; page-break-before: always; }
+    .small { color: var(--muted); font-size: 14px; }
+    .footer-note {
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 760px) {
+      .cover, .content { padding: 32px 24px; }
+      h1 { font-size: 27px; }
+      .meta, .toc { grid-template-columns: 1fr; }
+      .checklist { columns: 1; }
+    }
+    @media print {
+      @page { size: A4; margin: 1.6cm 1.5cm; }
+      body { background: #fff; font-size: 14pt; line-height: 1.55; }
+      .page { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      .cover, .content { padding: 0; }
+      .cover { min-height: 245mm; border-bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+      h1 { font-size: 28pt; }
+      h2 { font-size: 20pt; margin-top: 24pt; }
+      h3 { font-size: 16pt; }
+      table { font-size: 12.5pt; }
+      .toc { grid-template-columns: 1fr; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="cover">
+      <div class="kicker">คู่มือการใช้งานระบบ</div>
+      <h1>ระบบประเมินการเตรียมความพร้อมและพัฒนาอย่างเข้ม ตำแหน่งครูผู้ช่วย</h1>
+      <p class="subtitle">สำหรับผู้ดูแลระบบ ครูผู้ช่วย และคณะกรรมการประเมิน ครอบคลุมการจัดการข้อมูล การออกคำสั่งแต่งตั้ง การบันทึกผลประเมิน การจัดทำรายงาน และการจัดเก็บเอกสารใน Google Drive</p>
+      <div class="meta">
+        <div><span>ระบบ</span>ประเมินครูผู้ช่วย ก.ค.ศ.</div>
+        <div><span>หน่วยงาน</span>สพป.สกลนคร เขต ๒</div>
+        <div><span>ปรับปรุงคู่มือ</span>๒ กรกฎาคม ๒๕๖๙</div>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2 id="toc">สารบัญ</h2>
+      <div class="toc">
+        <a href="#overview">๑. ภาพรวมของระบบ</a>
+        <a href="#roles">๒. บทบาทผู้ใช้งาน</a>
+        <a href="#login">๓. การเข้าสู่ระบบ</a>
+        <a href="#prepare">๔. ข้อมูลที่ควรเตรียมก่อนใช้งาน</a>
+        <a href="#admin">๕. คู่มือสำหรับผู้ดูแลระบบ</a>
+        <a href="#appointment">๖. การออกคำสั่งแต่งตั้งกรรมการ</a>
+        <a href="#teacher">๗. คู่มือสำหรับครูผู้ช่วย</a>
+        <a href="#committee">๘. คู่มือสำหรับกรรมการประเมิน</a>
+        <a href="#reports">๙. การพิมพ์รายงานและเอกสาร</a>
+        <a href="#criteria">๑๐. เกณฑ์และการสรุปผล</a>
+        <a href="#drive">๑๑. การจัดเก็บข้อมูลและไฟล์ใน Google Drive</a>
+        <a href="#troubleshooting">๑๒. การแก้ปัญหาเบื้องต้น</a>
+      </div>
+
+      <h2 id="overview">๑. ภาพรวมของระบบ</h2>
+      <p>ระบบนี้ใช้สำหรับบริหารกระบวนการประเมินการเตรียมความพร้อมและพัฒนาอย่างเข้ม ตำแหน่งครูผู้ช่วย ตั้งแต่การบันทึกข้อมูลครูผู้ช่วย การแต่งตั้งคณะกรรมการ ๓ คน การบันทึกผลประเมินรายรอบ การพิมพ์แบบรายงาน ไปจนถึงการจัดเก็บไฟล์ PDF ใน Google Drive อัตโนมัติ</p>
+      <div class="success"><strong>ลำดับงานที่แนะนำ:</strong> เพิ่มข้อมูลสถานศึกษาและบุคลากร → เพิ่มครูผู้ช่วย → ให้ครูผู้ช่วยตรวจข้อมูลตนเอง → ออกคำสั่งแต่งตั้งกรรมการ → กรรมการบันทึกผลประเมิน → พิมพ์แบบบันทึก/แบบสรุป → ตรวจสรุปผลรายบุคคล</div>
+
+      <h3>เอกสารที่ระบบรองรับ</h3>
+      <ul>
+        <li>คำสั่งแต่งตั้งคณะกรรมการเตรียมความพร้อมและพัฒนาอย่างเข้ม ตำแหน่งครูผู้ช่วย</li>
+        <li>แบบบันทึกการประเมินการเตรียมความพร้อมและพัฒนาอย่างเข้ม ครั้งที่ ๑, ๒, ๓ และ ๔</li>
+        <li>แบบบันทึกข้อสังเกต ข้อเสนอแนะ จุดเด่น และจุดที่ควรพัฒนา</li>
+        <li>แบบสรุปผลการประเมินของคณะกรรมการ พร้อมรายชื่อกรรมการทั้ง ๓ คนและลายเซ็น</li>
+        <li>ไฟล์ PDF รายงานผลประเมินที่บันทึกไว้ใน Google Drive</li>
+      </ul>
+
+      <h2 id="roles">๒. บทบาทผู้ใช้งาน</h2>
+      <table>
+        <thead><tr><th>บทบาท</th><th>งานหลัก</th><th>เมนูที่เกี่ยวข้อง</th></tr></thead>
+        <tbody>
+          <tr><td>ผู้ดูแลระบบ</td><td>จัดการฐานข้อมูล เพิ่มครูผู้ช่วย ออกคำสั่งแต่งตั้ง ดูภาพรวมและสรุปผล</td><td>ภาพรวมระบบ, สถานศึกษา, ครูผู้ช่วย, ผู้อำนวยการ, ผู้ทรงคุณวุฒิ, ออกคำสั่งแต่งตั้ง, ข้อมูลการแต่งตั้ง, สรุปผลรายบุคคล, ออกรายงาน PDF</td></tr>
+          <tr><td>ครูผู้ช่วย</td><td>ตรวจและบันทึกข้อมูลส่วนตัว ตรวจการแต่งตั้งกรรมการ และดูผลการประเมินของตนเอง</td><td>ข้อมูลของฉัน, แต่งตั้งกรรมการ, ผลการประเมิน</td></tr>
+          <tr><td>กรรมการ</td><td>บันทึกรายการประเมิน อัปโหลดลายเซ็น และพิมพ์แบบรายงานของกรรมการ</td><td>บันทึกการประเมิน, แบบรายงาน, สรุปผล</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="login">๓. การเข้าสู่ระบบ</h2>
+      <h3>๓.๑ ผู้ดูแลระบบ</h3>
+      <div class="step-list">
+        <div class="step"><div><strong>เลือกบทบาท</strong><br>ที่หน้าเข้าสู่ระบบ เลือกแท็บ <code>ผู้ดูแลระบบ</code></div></div>
+        <div class="step"><div><strong>กรอกบัญชีผู้ดูแล</strong><br>ชื่อผู้ใช้ <code>ADMIN</code> และรหัสผ่าน <code>admin1234</code></div></div>
+        <div class="step"><div><strong>เข้าสู่ระบบ</strong><br>กดปุ่มเข้าสู่ระบบ ระบบจะเปิดหน้า <code>ภาพรวมระบบ</code></div></div>
+      </div>
+
+      <h3>๓.๒ ครูผู้ช่วย</h3>
+      <p>เลือกแท็บ <code>ครูผู้ช่วย</code> แล้วกรอกชื่อผู้ใช้และรหัสผ่านของครูผู้ช่วย โดยค่าเริ่มต้นคือ:</p>
+      <ul>
+        <li>ชื่อผู้ใช้: รหัสประจำตัวครูผู้ช่วย เช่น <code>T001</code></li>
+        <li>รหัสผ่าน: เลขที่จ่ายตรง</li>
+      </ul>
+      <p>หลังเข้าสู่ระบบ ครูผู้ช่วยสามารถตั้งชื่อผู้ใช้และรหัสผ่านใหม่ได้ที่เมนู <code>ข้อมูลของฉัน</code></p>
+
+      <h3>๓.๓ กรรมการ</h3>
+      <p>เลือกแท็บ <code>กรรมการ</code> กรอกบัญชีเดียวกับครูผู้ช่วยที่รับการประเมิน แล้วเลือกว่าต้องการเข้าประเมินในฐานะกรรมการคนที่ ๑, ๒ หรือ ๓</p>
+      <div class="note"><strong>ข้อควรจำ:</strong> ก่อนกรรมการเข้าสู่ระบบ ควรมีข้อมูลคำสั่งแต่งตั้งแล้ว เพื่อให้ระบบแสดงชื่อกรรมการตรงกับคำสั่ง เช่น ประธานกรรมการ ครูพี่เลี้ยง หรือผู้ทรงคุณวุฒิ</div>
+
+      <h2 id="prepare">๔. ข้อมูลที่ควรเตรียมก่อนใช้งาน</h2>
+      <ul class="checklist">
+        <li>รายชื่อสถานศึกษา</li>
+        <li>รายชื่อครูผู้ช่วย รหัสประจำตัว และเลขที่จ่ายตรง</li>
+        <li>ชื่อ-สกุลผู้อำนวยการโรงเรียน ตำแหน่ง และสถานศึกษา</li>
+        <li>ชื่อ-สกุลผู้ทรงคุณวุฒิ ตำแหน่ง และหน่วยงาน</li>
+        <li>วันที่บรรจุของครูผู้ช่วยในรูปแบบ วว/ดด/ปปปป</li>
+        <li>URL รูปภาพครูผู้ช่วย ถ้าต้องการแสดงรูปในหน้าข้อมูล</li>
+        <li>ไฟล์รูปลายมือชื่อของ ผอ.รร. และกรรมการแต่ละคน</li>
+        <li>เลขที่คำสั่งและวันที่ออกคำสั่งแต่งตั้ง</li>
+      </ul>
+
+      <h2 id="admin" class="page-break">๕. คู่มือสำหรับผู้ดูแลระบบ</h2>
+      <h3>๕.๑ ภาพรวมระบบ</h3>
+      <p>เมนู <code>ภาพรวมระบบ</code> ใช้ติดตามจำนวนครูผู้ช่วย สถานะการประเมิน รายการที่ใกล้ถึงกำหนด และภาพรวมผลการประเมินแต่ละรอบ ระบบคำนวณรอบจากวันที่บรรจุ โดยแต่ละรอบห่างกัน ๖ เดือน และมีช่วงรายงานภายใน ๓๐ วันหลังถึงกำหนด</p>
+
+      <h3>๕.๒ เพิ่มข้อมูลสถานศึกษา</h3>
+      <div class="step-list">
+        <div class="step"><div>ไปที่เมนู <code>สถานศึกษา</code></div></div>
+        <div class="step"><div>กด <code>เพิ่มสถานศึกษา</code></div></div>
+        <div class="step"><div>กรอกรหัสโรงเรียนและชื่อโรงเรียน</div></div>
+        <div class="step"><div>กด <code>บันทึก</code></div></div>
+      </div>
+      <p class="small">ควรเพิ่มสถานศึกษาก่อนเพิ่มข้อมูลครูผู้ช่วย เพื่อให้เลือกโรงเรียนจากรายการได้ถูกต้อง</p>
+
+      <h3>๕.๓ เพิ่มข้อมูลครูผู้ช่วย</h3>
+      <div class="step-list">
+        <div class="step"><div>ไปที่เมนู <code>ครูผู้ช่วย</code></div></div>
+        <div class="step"><div>กด <code>เพิ่มครูผู้ช่วย</code></div></div>
+        <div class="step"><div>กรอกรหัสประจำตัว เลขที่จ่ายตรง ชื่อ-สกุล และสถานศึกษา</div></div>
+        <div class="step"><div>กรอก URL รูปภาพครูผู้ช่วย หากมีรูปที่ฝากไว้บนเว็บหรือ Google Drive ที่เปิดดูได้</div></div>
+        <div class="step"><div>กด <code>บันทึกข้อมูล</code></div></div>
+      </div>
+      <div class="note">ระบบใช้รหัสประจำตัวและเลขที่จ่ายตรงเป็นบัญชีเริ่มต้นของครูผู้ช่วย หากต้องการเปลี่ยน สามารถกดแก้ไขครูผู้ช่วยแล้วกรอกชื่อผู้ใช้และรหัสผ่านใหม่ได้</div>
+
+      <h3>๕.๔ เพิ่มข้อมูลผู้อำนวยการโรงเรียน</h3>
+      <p>ไปที่เมนู <code>ผู้อำนวยการโรงเรียน</code> กดเพิ่ม ผอ.รร. แล้วกรอกรหัส ชื่อ-สกุล ตำแหน่ง และสถานศึกษา ข้อมูลนี้จะถูกนำไปใช้เป็นกรรมการคนที่ ๑ และลงชื่อท้ายคำสั่งแต่งตั้ง</p>
+
+      <h3>๕.๕ เพิ่มข้อมูลผู้ทรงคุณวุฒิ</h3>
+      <p>ไปที่เมนู <code>ผู้ทรงคุณวุฒิ</code> กดเพิ่มผู้ทรงคุณวุฒิ แล้วกรอกรหัส ชื่อ-สกุล ตำแหน่ง และหน่วยงาน ข้อมูลนี้จะใช้เลือกเป็นกรรมการคนที่ ๓</p>
+
+      <h2 id="appointment">๖. การออกคำสั่งแต่งตั้งกรรมการ</h2>
+      <p>เมนู <code>ออกคำสั่งแต่งตั้ง</code> ใช้จัดทำคำสั่งแต่งตั้งคณะกรรมการ ๓ คน โดยระบบแสดงกรรมการเป็นการ์ดแยกกัน มีเลขไทยกำกับ และใช้ข้อมูลนี้ต่อกับหน้าประเมินและแบบรายงาน</p>
+      <div class="step-list">
+        <div class="step"><div><strong>เลือกครูผู้ช่วย</strong><br>เลือกชื่อครูผู้ช่วยที่ต้องการจัดทำคำสั่ง</div></div>
+        <div class="step"><div><strong>กรอกเลขที่คำสั่งและวันที่</strong><br>เช่น <code>๑/๒๕๖๙</code> หรือ <code>1/2569</code> ระบบจะแปลงเลขในเนื้อหาคำสั่งเป็นเลขไทย</div></div>
+        <div class="step"><div><strong>กำหนดกรรมการคนที่ ๑</strong><br>เลือก ผอ.รร. จากฐานข้อมูล เพื่อเป็นประธานกรรมการ</div></div>
+        <div class="step"><div><strong>กำหนดกรรมการคนที่ ๒</strong><br>กรอกชื่อ-สกุลครูพี่เลี้ยงหรือกรรมการในสถานศึกษา</div></div>
+        <div class="step"><div><strong>กำหนดกรรมการคนที่ ๓</strong><br>เลือกผู้ทรงคุณวุฒิจากฐานข้อมูล</div></div>
+        <div class="step"><div><strong>อัปโหลดลายมือชื่อ</strong><br>อัปโหลดลายมือชื่อ ผอ.รร./ประธานกรรมการ และกรรมการคนที่ ๒-๓ ถ้ามี</div></div>
+        <div class="step"><div><strong>บันทึกการแต่งตั้ง</strong><br>กด <code>บันทึกการแต่งตั้ง</code> ระบบจะบันทึกข้อมูลและสร้างไฟล์ PDF คำสั่งใน Google Drive</div></div>
+        <div class="step"><div><strong>ตรวจตัวอย่างก่อนพิมพ์</strong><br>กด <code>พิมพ์คำสั่ง</code> เพื่อตรวจรูปแบบ A4 แล้วกดพิมพ์เอกสาร</div></div>
+      </div>
+      <div class="warning"><strong>ควรตรวจสอบก่อนบันทึก:</strong> ชื่อครูผู้ช่วย ชื่อโรงเรียน วันบรรจุ เลขที่คำสั่ง วันที่ออกคำสั่ง และรายชื่อกรรมการทั้ง ๓ คน เพราะข้อมูลเหล่านี้จะถูกนำไปใช้ในรายงานและไฟล์ PDF</div>
+
+      <h3>๖.๑ เมนูข้อมูลการแต่งตั้ง</h3>
+      <p>เมนู <code>ข้อมูลการแต่งตั้ง</code> ใช้ดูรายการครูผู้ช่วยและสถานะการแต่งตั้งกรรมการ ถ้าต้องการแก้ไขคำสั่งให้กดปุ่มแก้ไขคำสั่ง ระบบจะกลับไปหน้าออกคำสั่งแต่งตั้งของครูคนนั้น</p>
+
+      <h2 id="teacher" class="page-break">๗. คู่มือสำหรับครูผู้ช่วย</h2>
+      <h3>๗.๑ ข้อมูลของฉัน</h3>
+      <p>หลังเข้าสู่ระบบ ครูผู้ช่วยจะเข้าสู่เมนู <code>ข้อมูลของฉัน</code> เพื่อกรอกหรือแก้ไขข้อมูลส่วนตัว ได้แก่ ชื่อผู้ใช้ รหัสผ่าน รูปภาพ วิชาเอก วันที่บรรจุ เงินเดือน ประวัติการศึกษา และใบอนุญาตประกอบวิชาชีพ</p>
+      <div class="step-list">
+        <div class="step"><div>ตรวจสอบชื่อ-สกุล รหัสประจำตัว สถานศึกษา และเลขที่จ่ายตรง</div></div>
+        <div class="step"><div>ตั้งชื่อผู้ใช้และรหัสผ่านใหม่ หากไม่ต้องการใช้ค่าเริ่มต้น</div></div>
+        <div class="step"><div>กรอก URL รูปภาพครูผู้ช่วย หากต้องการให้ระบบแสดงรูปในตารางและหน้าข้อมูล</div></div>
+        <div class="step"><div>กรอกวันที่บรรจุให้ถูกต้อง เพราะระบบใช้คำนวณรอบการประเมิน</div></div>
+        <div class="step"><div>กรอกประวัติการศึกษาและข้อมูลใบอนุญาตประกอบวิชาชีพ</div></div>
+        <div class="step"><div>กด <code>บันทึกการเปลี่ยนแปลงทั้งหมด</code></div></div>
+      </div>
+
+      <h3>๗.๒ แต่งตั้งกรรมการ</h3>
+      <p>ครูผู้ช่วยสามารถเปิดเมนู <code>แต่งตั้งกรรมการ</code> เพื่อตรวจสอบคำสั่งแต่งตั้งของตนเอง รายชื่อกรรมการ และลายมือชื่อที่เกี่ยวข้อง</p>
+
+      <h3>๗.๓ ผลการประเมิน</h3>
+      <p>เมนู <code>ผลการประเมิน</code> แสดงสถานะผลประเมินครั้งที่ ๑ ถึง ๔ เช่น ยังไม่ถึงกำหนด รอผล ผ่าน หรือไม่ผ่าน</p>
+
+      <h2 id="committee">๘. คู่มือสำหรับกรรมการประเมิน</h2>
+      <h3>๘.๑ บันทึกการประเมิน</h3>
+      <p>กรรมการแต่ละคนต้องเข้าสู่ระบบโดยเลือกฐานะกรรมการคนที่ ๑, ๒ หรือ ๓ ให้ตรงกับคำสั่งแต่งตั้ง จากนั้นใช้เมนู <code>บันทึกการประเมิน</code> เพื่อบันทึกผลของตนเองในแต่ละครั้ง</p>
+      <div class="step-list">
+        <div class="step"><div>เลือกครั้งที่ประเมิน ๑, ๒, ๓ หรือ ๔ จากแถบด้านบน</div></div>
+        <div class="step"><div>ตรวจชื่อผู้รับการประเมินและชื่อผู้บันทึกให้ถูกต้อง</div></div>
+        <div class="step"><div>อ่านรายการประเมินแต่ละตัวชี้วัด แล้วกดสถานะ <code>ผ่าน</code> หรือปล่อยไว้เป็น <code>ไม่ผ่าน</code></div></div>
+        <div class="step"><div>เลือกวิธีการหรือหลักฐานประกอบ เช่น สังเกตการสอน สัมภาษณ์ เอกสาร บันทึก/รายงาน คำสั่ง หรืออื่น ๆ</div></div>
+        <div class="step"><div>กรอกจุดเด่น จุดที่ควรพัฒนา ข้อสังเกต และข้อเสนอแนะเพิ่มเติม</div></div>
+        <div class="step"><div>อัปโหลดลายเซ็นกรรมการเป็นไฟล์รูปภาพ ถ้าต้องการให้ปรากฏในแบบรายงาน</div></div>
+        <div class="step"><div>กด <code>บันทึกผลการประเมิน</code> ระบบจะบันทึกผลและสร้างไฟล์ PDF รายงานใน Google Drive</div></div>
+      </div>
+      <div class="note"><strong>การบันทึกข้อมูล:</strong> ระบบบันทึกผลแยกตามครูผู้ช่วย ครั้งที่ประเมิน และกรรมการแต่ละคน เช่น ครูคนเดียวกัน ครั้งที่ ๑ จะมีผลของกรรมการคนที่ ๑, ๒ และ ๓ แยกกัน</div>
+
+      <h3>๘.๒ แบบรายงานกรรมการ</h3>
+      <p>เมนู <code>แบบรายงาน</code> ใช้พิมพ์เอกสารของกรรมการในรอบที่เลือก ประกอบด้วยแบบพิมพ์ ๓ ประเภท</p>
+      <table>
+        <thead><tr><th>แบบพิมพ์</th><th>เนื้อหา</th><th>วิธีใช้</th></tr></thead>
+        <tbody>
+          <tr><td>แบบบันทึกการประเมิน</td><td>แสดงรายการประเมินพร้อมผลผ่าน/ไม่ผ่านและวิธีการหรือหลักฐาน</td><td>เลือกครั้งที่ประเมิน แล้วกด <code>พิมพ์แบบบันทึก</code></td></tr>
+          <tr><td>แบบบันทึกข้อสังเกต</td><td>แสดงข้อสังเกต ข้อเสนอแนะ จุดเด่น และจุดที่ควรพัฒนา</td><td>เลือกครั้งที่ประเมิน แล้วกด <code>พิมพ์ข้อสังเกต</code></td></tr>
+          <tr><td>แบบสรุปผลการประเมิน</td><td>สรุปผลตามด้านการประเมิน แสดงกรรมการทั้ง ๓ คนพร้อมลายเซ็น</td><td>เลือกครั้งที่ประเมิน แล้วกด <code>พิมพ์สรุปผล</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="reports" class="page-break">๙. การพิมพ์รายงานและเอกสาร</h2>
+      <h3>๙.๑ พิมพ์คำสั่งแต่งตั้ง</h3>
+      <ol>
+        <li>ไปที่เมนู <code>ออกคำสั่งแต่งตั้ง</code></li>
+        <li>เลือกครูผู้ช่วยและตรวจข้อมูลคำสั่ง</li>
+        <li>กด <code>พิมพ์คำสั่ง</code></li>
+        <li>ตรวจตัวอย่างก่อนพิมพ์ในหน้าต่าง A4</li>
+        <li>กด <code>พิมพ์เอกสารนี้</code></li>
+      </ol>
+
+      <h3>๙.๒ พิมพ์แบบรายงานกรรมการ</h3>
+      <ol>
+        <li>เข้าสู่ระบบในฐานะกรรมการ</li>
+        <li>ไปที่เมนู <code>แบบรายงาน</code></li>
+        <li>เลือกครั้งที่ประเมิน</li>
+        <li>ตรวจลายเซ็นกรรมการ หากยังไม่มีให้อัปโหลดและบันทึก</li>
+        <li>เลือกพิมพ์แบบบันทึกการประเมิน แบบบันทึกข้อสังเกต หรือแบบสรุปผล</li>
+      </ol>
+
+      <h3>๙.๓ ออกรายงาน PDF โดยผู้ดูแลระบบ</h3>
+      <p>ผู้ดูแลระบบไปที่เมนู <code>ออกรายงาน PDF</code> เลือกครูผู้ช่วยและครั้งที่ประเมิน จากนั้นกดดูแบบสรุปผลและพิมพ์รายงานได้</p>
+
+      <h2 id="criteria">๑๐. เกณฑ์และการสรุปผล</h2>
+      <h3>๑๐.๑ รอบการประเมิน</h3>
+      <p>ระบบรองรับการประเมิน ๔ ครั้งในระยะเวลา ๒ ปี โดยคำนวณรอบจากวันที่บรรจุของครูผู้ช่วย แต่ละครั้งห่างกันประมาณ ๖ เดือน</p>
+      <table>
+        <thead><tr><th>ครั้งที่</th><th>กลุ่มแบบประเมิน</th><th>ด้านที่ใช้ประเมิน</th></tr></thead>
+        <tbody>
+          <tr><td>ครั้งที่ ๑</td><td>ครั้งที่ ๑ - ๒</td><td>ด้านวิชาชีพ และด้านคุณลักษณะส่วนบุคคล</td></tr>
+          <tr><td>ครั้งที่ ๒</td><td>ครั้งที่ ๑ - ๒</td><td>ด้านวิชาชีพ และด้านคุณลักษณะส่วนบุคคล</td></tr>
+          <tr><td>ครั้งที่ ๓</td><td>ครั้งที่ ๓ - ๔</td><td>ด้านวิชาชีพ ด้านสังคม และด้านคุณลักษณะส่วนบุคคล</td></tr>
+          <tr><td>ครั้งที่ ๔</td><td>ครั้งที่ ๓ - ๔</td><td>ด้านวิชาชีพ ด้านสังคม และด้านคุณลักษณะส่วนบุคคล</td></tr>
+        </tbody>
+      </table>
+
+      <h3>๑๐.๒ เกณฑ์ผ่านรายกรรมการ</h3>
+      <table>
+        <thead><tr><th>ครั้งที่</th><th>ด้านวิชาชีพ</th><th>ด้านสังคม</th><th>ด้านคุณลักษณะส่วนบุคคล</th><th>เงื่อนไขผ่าน</th></tr></thead>
+        <tbody>
+          <tr><td>๑ - ๒</td><td>ผ่านอย่างน้อย ๙ จาก ๑๕ รายการ</td><td>ยังไม่ใช้ประเมิน</td><td>ผ่านอย่างน้อย ๗ จาก ๑๑ รายการ</td><td>ต้องผ่านทั้งด้านวิชาชีพและด้านคุณลักษณะส่วนบุคคล</td></tr>
+          <tr><td>๓ - ๔</td><td>ผ่านอย่างน้อย ๑๑ จาก ๑๕ รายการ</td><td>ผ่านอย่างน้อย ๓ จาก ๓ รายการ</td><td>ผ่านอย่างน้อย ๑๑ จาก ๑๖ รายการ</td><td>ต้องผ่านครบทุกด้าน</td></tr>
+        </tbody>
+      </table>
+
+      <h3>๑๐.๓ การสรุปผลรายรอบ</h3>
+      <p>ผลสรุปของครูผู้ช่วยในแต่ละครั้งใช้เสียงของกรรมการ ๓ คน หากกรรมการอย่างน้อย ๒ คนมีผลเป็น <strong>ผ่าน</strong> ระบบจะสรุปผลรอบนั้นเป็น <strong>ผ่าน</strong> ถ้ายังมีกรรมการไม่ได้บันทึก ระบบจะแสดงเป็น <strong>รอผล</strong></p>
+
+      <h2 id="drive">๑๑. การจัดเก็บข้อมูลและไฟล์ใน Google Drive</h2>
+      <p>เมื่อเชื่อมระบบกับ Google Apps Script แล้ว ข้อมูลและเอกสารจะถูกจัดเก็บดังนี้</p>
+      <table>
+        <thead><tr><th>ประเภทข้อมูล</th><th>ที่จัดเก็บ</th><th>รายละเอียด</th></tr></thead>
+        <tbody>
+          <tr><td>ข้อมูลหลัก</td><td>Google Sheets</td><td>ชีต Teachers, Directors, Experts, Schools, Appointments และ Evaluations</td></tr>
+          <tr><td>คำสั่งแต่งตั้ง</td><td>โฟลเดอร์ Google Drive: คำสั่งแต่งตั้งคณะกรรมการฯ</td><td>สร้างเป็นไฟล์ PDF เมื่อบันทึกการแต่งตั้ง</td></tr>
+          <tr><td>ผลคะแนนและแบบรายงาน</td><td>โฟลเดอร์ Google Drive: ผลคะแนนการประเมินครูผู้ช่วย</td><td>สร้างเป็นไฟล์ PDF เมื่อกรรมการกดบันทึกผลการประเมิน</td></tr>
+          <tr><td>ลายมือชื่อ</td><td>โฟลเดอร์ Google Drive: ลายมือชื่อคณะกรรมการประเมินครูผู้ช่วย</td><td>เก็บไฟล์รูปภาพลายมือชื่อที่อัปโหลดในระบบ</td></tr>
+        </tbody>
+      </table>
+      <div class="warning"><strong>สิทธิ์การเข้าถึง:</strong> ผู้ดูแลควรตรวจสอบสิทธิ์ของ Web App และ Google Drive ให้เหมาะสม เพื่อให้ผู้ใช้ที่เกี่ยวข้องสามารถบันทึกและเปิดไฟล์ PDF ได้</div>
+
+      <h2 id="troubleshooting">๑๒. การแก้ปัญหาเบื้องต้น</h2>
+      <table>
+        <thead><tr><th>ปัญหา</th><th>สาเหตุที่เป็นไปได้</th><th>วิธีแก้ไข</th></tr></thead>
+        <tbody>
+          <tr><td>เข้าสู่ระบบไม่ได้</td><td>เลือกบทบาทผิด หรือชื่อผู้ใช้/รหัสผ่านไม่ตรง</td><td>ตรวจบทบาทให้ถูกต้อง ผู้ดูแลใช้ <code>ADMIN/admin1234</code> ครูและกรรมการใช้รหัสครูหรือบัญชีที่ตั้งไว้</td></tr>
+          <tr><td>ไม่พบชื่อกรรมการในหน้าประเมิน</td><td>ยังไม่ได้บันทึกคำสั่งแต่งตั้ง หรือเลือกครูผิดคน</td><td>ให้ผู้ดูแลไปที่เมนูออกคำสั่งแต่งตั้ง แล้วบันทึกข้อมูลกรรมการให้ครบ</td></tr>
+          <tr><td>พิมพ์คำสั่งหรือรายงานไม่ได้</td><td>เบราว์เซอร์บล็อกหน้าพิมพ์ หรือยังไม่ได้เปิดตัวอย่าง</td><td>อนุญาต pop-up/printing สำหรับเว็บนี้ แล้วลองกดพิมพ์อีกครั้ง</td></tr>
+          <tr><td>ไฟล์ PDF ไม่ขึ้นใน Google Drive</td><td>สิทธิ์ Apps Script หรือ Drive ยังไม่ครบ หรือยังไม่ได้กดบันทึก</td><td>กดบันทึกอีกครั้ง ตรวจสิทธิ์การเรียกใช้ Web App และตรวจโฟลเดอร์ Drive</td></tr>
+          <tr><td>รูปภาพหรือลายเซ็นไม่แสดง</td><td>ไฟล์รูปไม่ใช่รูปภาพ หรือ URL รูปภาพเปิดดูไม่ได้</td><td>ใช้ไฟล์ PNG/JPG สำหรับลายเซ็น และตรวจ URL รูปภาพให้เปิดได้จริง</td></tr>
+          <tr><td>ข้อมูลไม่อัปเดต</td><td>อยู่ในโหมด Offline หรือเครือข่ายไม่เสถียร</td><td>เชื่อมต่ออินเทอร์เน็ต รีเฟรชหน้า และลองบันทึกอีกครั้ง</td></tr>
+        </tbody>
+      </table>
+
+      <h2>ภาคผนวก: รายการตรวจสอบก่อนใช้งานจริง</h2>
+      <ul class="checklist">
+        <li>เพิ่มสถานศึกษาครบทุกแห่ง</li>
+        <li>เพิ่มครูผู้ช่วยครบทุกคน</li>
+        <li>ตรวจวันที่บรรจุของครูผู้ช่วยทุกคน</li>
+        <li>เพิ่ม ผอ.รร. และผู้ทรงคุณวุฒิครบ</li>
+        <li>ออกคำสั่งแต่งตั้งกรรมการครบ ๓ คน</li>
+        <li>อัปโหลดลายเซ็น ผอ.รร. และกรรมการที่ต้องใช้</li>
+        <li>ให้กรรมการบันทึกผลครบทั้ง ๓ คนในแต่ละครั้ง</li>
+        <li>ตรวจไฟล์ PDF ใน Google Drive หลังบันทึก</li>
+        <li>พิมพ์แบบบันทึกและแบบสรุปก่อนเสนอผู้เกี่ยวข้อง</li>
+        <li>สำรองข้อมูล Google Sheets เป็นระยะ</li>
+      </ul>
+
+      <div class="footer-note">
+        คู่มือนี้จัดทำสำหรับระบบประเมินการเตรียมความพร้อมและพัฒนาอย่างเข้ม ตำแหน่งครูผู้ช่วย เวอร์ชันที่มีเมนูออกคำสั่งแต่งตั้ง กรรมการ ๓ คน แบบรายงานกรรมการ และการจัดเก็บไฟล์ PDF ใน Google Drive
+      </div>
+    </section>
+  </main>
+</body>
+</html>
